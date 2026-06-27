@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservicio-Producto" />
+        <module name="microservicio-solicitudes" />
+        <module name="microservicio-reservas" />
+        <module name="microservicio-Mermas" />
+        <module name="reserva" />
+        <module name="Gateway-Server" />
+        <module name="eureka-server" />
+        <module name="microservicio-eventos" />
+        <module name="microservicio-Insumos" />
+      </profile>
+      <profile name="Annotation profile for Restaurante-Backend" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="User" />
+        <module name="microservicio-proveedor" />
+        <module name="microservicio-cocina" />
+        <module name="microservicio-mesas" />
+        <module name="microservicio-cambios" />
+        <module name="microservicio-pedidos" />
+        <module name="microservicio-pagos" />
+      </profile>
+      <profile name="Annotation profile for microservicio-incidentes" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.5.Final/mapstruct-processor-1.5.5.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+        </processorPath>
+        <module name="microservicio-incidentes" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Gateway-Server" options="-parameters" />
+      <module name="Restaurante-Backend" options="-parameters" />
+      <module name="User" options="-parameters" />
+      <module name="back-gestion" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="microservicio-Insumos" options="-parameters" />
+      <module name="microservicio-Mermas" options="-parameters" />
+      <module name="microservicio-Producto" options="-parameters" />
+      <module name="microservicio-cambios" options="-parameters" />
+      <module name="microservicio-cocina" options="-parameters" />
+      <module name="microservicio-eventos" options="-parameters" />
+      <module name="microservicio-incidentes" options="-parameters" />
+      <module name="microservicio-mesas" options="-parameters" />
+      <module name="microservicio-pagos" options="-parameters" />
+      <module name="microservicio-pedidos" options="-parameters" />
+      <module name="microservicio-proveedor" options="-parameters" />
+      <module name="microservicio-reservas" options="-parameters" />
+      <module name="microservicio-solicitudes" options="-parameters" />
+      <module name="reserva" options="-parameters" />
+    </option>
+  </component>
+</project>
