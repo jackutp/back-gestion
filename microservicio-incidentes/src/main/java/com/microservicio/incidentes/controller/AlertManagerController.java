@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/incidentes")
+@RequestMapping("/api/incidentes/alert")
 @RequiredArgsConstructor
 public class AlertManagerController {
     private final AlertManagerService alertManagerService;
