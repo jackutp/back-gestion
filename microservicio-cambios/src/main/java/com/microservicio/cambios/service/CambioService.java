@@ -38,6 +38,7 @@ public class CambioService {
         log.info("Creando solicitud - Tipo: {}, Título: {}", dto.tipoCambio(), dto.titulo());
 
         if (dto.tipoCambio() == null) {
+            log.warn("Intento de crear solicitud sin tipo de cambio");
             throw new RuntimeException("El tipo de cambio es requerido");
         }
 
@@ -80,12 +81,13 @@ public class CambioService {
                     dto.responsableAsignado(),
                     dto.subtareas()
             );
-
+            log.info("Creando ticket en Jira para solicitud {}", saved.getCodigoTicket());
             String jiraKey = jiraService.crearTicketEnJira(jiraDTO);
 
             saved.setJiraTicketId(jiraKey);
             saved.setJiraUrl(jiraService.getTicketUrl(jiraKey));
 
+            log.info( "Ticket Jira {} asociado correctamente a la solicitud {}", jiraKey, saved.getCodigoTicket() );
             Cambio updated = cambioRepository.save(saved);
             return solicitudMapper.toDTO(updated);
         } catch (Exception e) {
@@ -114,12 +116,13 @@ public class CambioService {
                 cambio.setFechaCierre(LocalDateTime.now());
             }
         }
+        log.debug( "Estado actual de la solicitud {}: {}", id, cambio.getEstado() );
         cambio.setEstado(nuevoEstado);
-
         Cambio updated = cambioRepository.save(cambio);
-
+        log.info( "Solicitud {} actualizada correctamente a estado {}", cambio.getCodigoTicket(), nuevoEstado );
         if (cambio.getJiraTicketId() != null) {
             try {
+                log.info( "Sincronizando estado {} con Jira ({})", nuevoEstado, cambio.getJiraTicketId() );
                 jiraService.actualizarEstadoJira(cambio.getJiraTicketId(), nuevoEstado.name());
             } catch (Exception e) {
                 log.warn("No se pudo actualizar el estado en Jira: {}", e.getMessage());
@@ -131,11 +134,14 @@ public class CambioService {
 
     @Transactional
     public CambioDTO actualizarResponsable(Long id, String responsable) {
+        log.info( "Asignando responsable {} a la solicitud {}", responsable, id );
         Cambio cambio = cambioRepository.findById(id).orElseThrow(() -> new RuntimeException("Solicitud no encontrada"));
         cambio.setResponsableAsignado(responsable);
         Cambio updated = cambioRepository.save(cambio);
+        log.info( "Responsable actualizado correctamente para {}", cambio.getCodigoTicket() );
         if (cambio.getJiraTicketId() != null) {
             String accountId = JIRA_USERS.get(responsable);
+            log.info( "Actualizando responsable en Jira ({})", cambio.getJiraTicketId() );
             jiraService.actualizarAsignado(cambio.getJiraTicketId(), accountId);
         }
         return solicitudMapper.toDTO(updated);
