@@ -1,9 +1,11 @@
-package Service.user;
+package com.microservicio.cambios;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserApplicationTests {
+class MicroservicioCambiosApplicationTests {
+
 	@Test
 	void contextLoads() {
 	}

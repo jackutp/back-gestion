@@ -8,11 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservicio-Producto" />
-        <module name="microservicio-solicitudes" />
         <module name="microservicio-reservas" />
         <module name="microservicio-Mermas" />
         <module name="reserva" />
-        <module name="Gateway-Server" />
         <module name="microservicio-eventos" />
         <module name="microservicio-Insumos" />
       </profile>
@@ -26,7 +24,6 @@
         <module name="microservicio-proveedor" />
         <module name="microservicio-cocina" />
         <module name="microservicio-mesas" />
-        <module name="microservicio-cambios" />
         <module name="microservicio-pedidos" />
         <module name="microservicio-pagos" />
       </profile>
@@ -44,7 +41,7 @@
         </processorPath>
         <module name="microservicio-incidentes" />
       </profile>
-      <profile name="Annotation profile for User" enabled="true">
+      <profile name="Annotation profile for Gateway-Server" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -52,7 +49,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
-        <module name="User" />
+        <module name="Gateway-Server" />
       </profile>
       <profile name="Annotation profile for eureka-server" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -63,6 +60,36 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
         <module name="eureka-server" />
+      </profile>
+      <profile name="Annotation profile for microservicio-cambios" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="microservicio-cambios" />
+      </profile>
+      <profile name="Annotation profile for microservicio-solicitudes" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="microservicio-solicitudes" />
+      </profile>
+      <profile name="Annotation profile for User" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+        </processorPath>
+        <module name="User" />
       </profile>
     </annotationProcessing>
   </component>
