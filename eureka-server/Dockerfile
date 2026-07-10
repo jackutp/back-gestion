@@ -6,10 +6,8 @@ COPY pom.xml .
 COPY eureka-server/pom.xml eureka-server/pom.xml
 
 RUN chmod +x mvnw
-RUN --mount=type=cache,id=maven-cache,target=/root/.m2 ./mvnw -pl eureka-server -am dependency:go-offline
 COPY . .
-RUN --mount=type=cache,id=maven-cache,target=/root/.m2 ./mvnw clean package -DskipTests -pl eureka-server -am
-
+RUN ./mvnw package -DskipTests -pl eureka-server -am
 FROM eclipse-temurin:25-jre
 WORKDIR /app
 COPY --from=builder /app/eureka-server/target/*.jar app.jar
