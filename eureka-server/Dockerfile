@@ -1,16 +1,17 @@
 ARG MODULE=eureka-server
-FROM eclipse-temurin:25-jdk as builder
-WORKDIR /app
+FROM eclipse-temurin:25-jdk AS builder
 ARG MODULE=eureka-server
-COPY ${MODULE} /app/${MODULE}
+WORKDIR /app
+COPY .mvn .mvn
+COPY mvnw .
 COPY pom.xml .
-#RUN ./mvnw clean package -DskipTests
-RUN chmod +x /app/${MODULE}/mvnw && /app/${MODULE}/mvnw -f /app/${MODULE}/pom.xml clean package -DskipTests
+RUN chmod +x mvnw
+RUN ./mvnw -pl ${MODULE} -am dependency:go-offline
+COPY . .
+RUN ./mvnw clean package -DskipTests -pl ${MODULE} -am
 
 FROM eclipse-temurin:25-jre
-ARG MODULE=eureka-server
 WORKDIR /app
+ARG MODULE=eureka-server
 COPY --from=builder /app/${MODULE}/target/*.jar app.jar
-#COPY ${MODULE}/target/*.jar app.jar
-
-ENTRYPOINT ["java","-jar","/app/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
