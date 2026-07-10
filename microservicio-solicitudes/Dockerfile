@@ -6,9 +6,9 @@ COPY pom.xml .
 COPY microservicio-solicitudes/pom.xml microservicio-solicitudes/pom.xml
 
 RUN chmod +x mvnw
-RUN --mount=type=cache,target=/root/.m2 ./mvnw -pl microservicio-solicitudes -am dependency:go-offline
+RUN --mount=type=cache,id=cache-maven,target=/root/.m2 ./mvnw -pl microservicio-solicitudes -am dependency:go-offline
 COPY . .
-RUN --mount=type=cache,target=/root/.m2 ./mvnw clean package -DskipTests -pl microservicio-solicitudes -am
+RUN --mount=type=cache,id=cache-maven,target=/root/.m2 ./mvnw clean package -DskipTests -pl microservicio-solicitudes -am
 
 FROM eclipse-temurin:25-jre
 WORKDIR /app
