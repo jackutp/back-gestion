@@ -1,17 +1,16 @@
-ARG MODULE=microservicio-solicitudes
 FROM eclipse-temurin:25-jdk AS builder
-ARG MODULE=microservicio-solicitudes
 WORKDIR /app
 COPY .mvn .mvn
 COPY mvnw .
 COPY pom.xml .
+COPY microservicio-solicitudes/pom.xml microservicio-solicitudes/pom.xml
+
 RUN chmod +x mvnw
-RUN ./mvnw -pl ${MODULE} -am dependency:go-offline
+RUN --mount=type=cache,target=/root/.m2 ./mvnw -pl microservicio-solicitudes -am dependency:go-offline
 COPY . .
-RUN ./mvnw clean package -DskipTests -pl ${MODULE} -am
+RUN --mount=type=cache,target=/root/.m2 ./mvnw clean package -DskipTests -pl microservicio-solicitudes -am
 
 FROM eclipse-temurin:25-jre
 WORKDIR /app
-ARG MODULE=microservicio-solicitudes
-COPY --from=builder /app/${MODULE}/target/*.jar app.jar
+COPY --from=builder /app/microservicio-solicitudes/target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
