@@ -17,6 +17,7 @@ spring:
               '[/**]':
                 allowed-origin-patterns:
                   - "http://localhost:3000"
+                  - "https://front-gestion-prod.vercel.app/"
                 allowed-methods:
                   - GET
                   - POST
