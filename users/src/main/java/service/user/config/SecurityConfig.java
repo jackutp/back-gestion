@@ -24,7 +24,7 @@ public class SecurityConfig {
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(authRequest ->
                         authRequest
-                                .requestMatchers("/users/login", "/users/registro").permitAll()
+                                .requestMatchers("/users/login", "/users/registro", "/actuator/**").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManager ->

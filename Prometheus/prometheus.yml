@@ -1,0 +1,52 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+rule_files:
+  - alert-rules.yml
+alerting:
+  alertmanagers:
+    - scheme: https
+      static_configs:
+        - targets:
+            - alertmanager-production-305a.up.railway.app
+scrape_configs:
+  - job_name: "eureka-gestion"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - eureka-gestion-production.up.railway.app
+  - job_name: "gateway-gestion"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - gateway-gestion-production.up.railway.app
+  - job_name: "cambios-gestion"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - cambios-gestion-production.up.railway.app
+  - job_name: "solicitudes-gestion"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - solicitudes-gestion-production.up.railway.app
+  - job_name: "usuarios-gestion"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - usuarios-gestion-production.up.railway.app
+  - job_name: "incidentes"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - incidentes-gestion-production.up.railway.app
+  - job_name: "prometheus"
+    static_configs:
+      - targets:
+          - prometheus.railway.internal:9090

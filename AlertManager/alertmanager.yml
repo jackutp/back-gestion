@@ -1,0 +1,6 @@
+route:
+  receiver: incidentes
+receivers:
+  - name: incidentes
+    webhook_configs:
+      - url: https://incidentes-gestion-production.up.railway.app/api/incidentes/alert
