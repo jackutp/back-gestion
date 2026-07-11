@@ -10,6 +10,98 @@ alerting:
         - targets:
             - alertmanager-production-305a.up.railway.app
 scrape_configs:
+  #PRINCIPAL
+  - job_name: "eureka-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - eureka-production-eb9b.up.railway.app
+  - job_name: "gateway-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - gateway-production-17dd.up.railway.app
+  - job_name: "proveedor-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - proveedor-production.up.railway.app
+  - job_name: "cocina-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - cocina-production-48e2.up.railway.app
+  - job_name: "cambios-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - cambios-production-167f.up.railway.app
+  - job_name: "pedidos-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - pedidos-production-aeda.up.railway.app
+  - job_name: "insumos-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - insumos-production.up.railway.app
+  - job_name: "eventos-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - eventos-production-caa2.up.railway.app
+  - job_name: "pagos-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - pagos-production-fc26.up.railway.app
+  - job_name: "mesas-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - mesas-production.up.railway.app
+  - job_name: "mermas-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - mermas-production.up.railway.app
+  - job_name: "producto-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - producto-production-6a38.up.railway.app
+  - job_name: "users-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - users-production-3037.up.railway.app
+  - job_name: "reservas-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - reservas-production-115f.up.railway.app
+  - job_name: "solicitudes-restaurante"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - solicitudes-production-5661.up.railway.app
+  #GESTION
   - job_name: "eureka-gestion"
     scheme: https
     metrics_path: /actuator/prometheus

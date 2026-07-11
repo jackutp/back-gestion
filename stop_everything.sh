@@ -1,7 +1,11 @@
 #!/bin/bash
-railway down --service Eureka-Gestion -y
-railway down --service Gateway-Gestion -y
-railway down --service Usuarios-Gestion -y
-railway down --service Solicitudes-Gestion -y
-railway down --service Incidentes-Gestion -y
-railway down --service Cambios-Gestion -y
+for svc in \
+Eureka-Gestion \
+Gateway-Gestion \
+Usuarios-Gestion \
+Solicitudes-Gestion \
+Incidentes-Gestion \
+Cambios-Gestion
+do
+    railway down --service "$svc" -y
+done

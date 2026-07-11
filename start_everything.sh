@@ -1,7 +1,16 @@
 #!/bin/bash
-railway up --service Eureka-Gestion
-railway up --service Gateway-Gestion
-railway up --service Usuarios-Gestion
-railway up --service Solicitudes-Gestion
-railway up --service Incidentes-Gestion
-railway up --service Cambios-Gestion
+railway up -d --service Eureka-Gestion
+echo "Waiting for Eureka..."
+until curl -fs https://eureka-gestion-production.up.railway.app/actuator/health >/dev/null; do
+    sleep 5
+done
+echo "Eureka is ready."
+for svc in \
+Gateway-Gestion \
+Usuarios-Gestion \
+Solicitudes-Gestion \
+Incidentes-Gestion \
+Cambios-Gestion
+do
+    railway up -d --service "$svc"
+done
