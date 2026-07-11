@@ -1,0 +1,31 @@
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d %-5level [%thread] %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="LOKI"
+              class="com.github.loki4j.logback.Loki4jAppender">
+        <http>
+            <url>https://loki-production-af95.up.railway.app/loki/api/v1/push</url>
+            <reconnectDelay>1000</reconnectDelay>
+        </http>
+        <format>
+            <label>
+                <pattern>
+                    app=${spring.application.name},env=production
+                </pattern>
+            </label>
+            <message>
+                <pattern>
+                    %message
+                </pattern>
+            </message>
+            <sortByTime>true</sortByTime>
+        </format>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="LOKI"/>
+    </root>
+</configuration>
