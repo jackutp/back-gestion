@@ -58,6 +58,12 @@ spring:
                 - Path=/api/incidentes/**
               filters:
                 - StripPrefix=1
+            - id: microservicio-baseconocimiento
+              uri: lb://microservicio-baseconocimiento
+              predicates:
+                - Path=/api/base-conocimiento/**
+              filters:
+                - StripPrefix=1
 eureka:
   instance:
     instance-id: ${spring.application.name}:${server.port}
