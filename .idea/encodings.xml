@@ -4,12 +4,13 @@
     <file url="file://$PROJECT_DIR$/Gateway-Server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservicio-Insumos/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/microservicio-incidentes/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/microservicio-incidentes/src/test/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservicio-Mermas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservicio-baseConocimiento/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservicio-cambios/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservicio-cocina/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservicio-eventos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservicio-incidentes/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/microservicio-incidentes/src/test/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservicio-mesas/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservicio-pagos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/microservicio-pedidos/src/main/java" charset="UTF-8" />

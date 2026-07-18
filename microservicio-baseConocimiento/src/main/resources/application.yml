@@ -1,0 +1,58 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    name: microservicio-baseconocimiento
+
+  datasource:
+    url: jdbc:postgresql://${WRITE_SERVER:localhost:5432}/base_conocimiento
+    username: ${USERNAME_WRITE_DB:postgres}
+    password: ${PASSWORD_WRITE_DB:password}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  #No implementamos email asi que ._.xd
+  #mail:
+  #  host: smtp.gmail.com
+  #  port: 587
+  #  username: notificaciones@le-bon-gout.com
+  #  password: ${MAIL_PASSWORD}
+  #  properties:
+  #    mail:
+  #      smtp:
+  #        auth: true
+  #        starttls:
+  #          enable: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: ${EUREKA_URL:http://localhost:8761}/eureka/
+  instance:
+    hostname: ${RAILWAY_PRIVATE_DOMAIN:localhost}
+    preferIpAddress: false
+    instance-id: ${spring.application.name}:${server.port}
+
+logging:
+  level:
+    com.microservicio.baseConocimiento: DEBUG
+    org.hibernate.SQL: DEBUG
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,metrics

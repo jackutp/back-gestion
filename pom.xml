@@ -29,6 +29,7 @@
   	    <module>users</module>
 		<module>microservicio-cambios</module>
 		<module>microservicio-incidentes</module>
+		<module>microservicio-baseConocimiento</module>
     </modules>
     <scm>
 		<connection/>

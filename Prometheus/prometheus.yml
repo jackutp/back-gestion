@@ -138,6 +138,12 @@ scrape_configs:
     static_configs:
       - targets:
           - incidentes-gestion-production.up.railway.app
+  - job_name: "base-conocimiento"
+    scheme: https
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - conocimiento-gestion-production.up.railway.app
   - job_name: "prometheus"
     static_configs:
       - targets:
