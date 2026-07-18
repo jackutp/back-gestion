@@ -10,7 +10,8 @@ Gateway-Gestion \
 Usuarios-Gestion \
 Solicitudes-Gestion \
 Incidentes-Gestion \
-Cambios-Gestion
+Cambios-Gestion \
+Conocimiento-Gestion
 do
     railway up -d --service "$svc"
 done
